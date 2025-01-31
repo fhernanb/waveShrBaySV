@@ -14,6 +14,3 @@ for (t in 2:n){
   y[t] = rlike(x[t])
 }
 par(mfrow=c(2,1));plot.ts(y);plot.ts(exp(x/2))
-
-
-
