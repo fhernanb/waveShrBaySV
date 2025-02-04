@@ -1,4 +1,6 @@
-LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=75,method=1){
+#' LWW, Función para el ca´lcul
+
+LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=75,Ne=20,method=1){
   n  = length(y)
   N  = length(xs)
   quants = array(0,c(n,4,3))
@@ -10,7 +12,7 @@ LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=75,method=1){
   ws<-NULL
   ESS<-NULL
   #like = rep(0,n)
-  par(mfrow=c(1,1))
+  #par(mfrow=c(1,1))
   for (t in 1:n){
     #like[t] = sum(dnorm(y[t],0.0,exp(xs/2)))
     # Resampling
@@ -19,9 +21,6 @@ LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=75,method=1){
     vpar    = var(pars)
     ms      = a*pars+(1-a)*matrix(mpar,N,3,byrow=T)
     weight  = dnorm(y[t],0.0,exp(mus/2),log=TRUE)
-    #ww  <- plWav1j(weight,filter.number = 4, family = 'DaubLeAsymm', a = 1, b = 1, bet = 1,
-    #               nu0 = 5,lamb0 = 1, M=75, Ne = 200, j0=lev, plot.EMPL = FALSE)
-    #weight  <- ww$bayesrec5
     weight1 = exp(weight-max(weight))
     k       = sample(1:N,size=N,replace=T,prob=weight1)
     # Propagating
@@ -29,28 +28,22 @@ LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=75,method=1){
     xt   = rnorm(N,ms1[,1]+ms1[,2]*xs[k],exp(ms1[,3]/2))
     if(method==1){
       xst  <- plWav1j(xt,filter.number = 4, family = 'DaubLeAsymm', a = 1, b = 1, bet = 1,
-                    nu0 = 5,lamb0 = 1, M=M, Ne = 200, j0=lev, plot.EMPL = FALSE)}
+                    nu0 = 50,lamb0 = 1, M = M, Ne = Ne, j0=lev, plot.EMPL = FALSE)}
     else{
       xst  <- BAYES.THR(xt,alpha=1,beta=1,filter.number = 4, family = 'DaubLeAsymm',plotfn=FALSE,j0=lev,dev=var)
     }
     xt <- xst
     w    = dnorm(y[t],0.0,exp(xt/2),log=TRUE)-weight[k]
-    #ww  <- plWav1j(w,filter.number = 4, family = 'DaubLeAsymm', a = 1, b = 1, bet = 1,
-    #                    nu0 = 5,lamb0 = 1, M=75, Ne = 200, j0=lev, plot.EMPL = FALSE)
-    #w   <- ww$bayesrec5
     w    = exp(w-max(w))
     ind  = sample(1:N,size=N,replace=T,prob=w)
     xs   = xt[ind]
-    #xsw  <- plWav1j(xs,filter.number = 4, family = 'DaubLeAsymm', a = 1, b = 1, bet = 1,
-    #                nu0 = 5,lamb0 = 1, M=75, Ne = 200, j0=lev, plot.EMPL = FALSE)
-    #xs <- xsw$bayesrec5
     pars = ms1[ind,]
     xss<-rbind(xss,xs)
     parss[,,t]<-pars
-    ws<-rbind(ws,w)
-    cv2<-var(w)/(mean(w)^2)
-    ESS<-c(ESS,N/(1+cv2))
-    ts.plot(ESS,xlim=c(1,n))
+    #ws<-rbind(ws,w)
+    #cv2<-var(w)/(mean(w)^2)
+    #ESS<-c(ESS,N/(1+cv2))
+    #ts.plot(ESS,xlim=c(1,n))
     # Storing quantiles
     quants[t,1,] = quantile(pars[,1],c(0.5,0.025,0.975))
     quants[t,2,] = quantile(pars[,2],c(0.5,0.025,0.975))
@@ -59,3 +52,4 @@ LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=75,method=1){
   }
   return(list(quants=quants,parss=parss,xss=xss))
 }
+
