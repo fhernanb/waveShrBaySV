@@ -1,3 +1,11 @@
+#' errorF
+#'
+#' Esta funcion se encarga del cálculo de la raíz cuadrada del error cuadrático medio.
+#' La función facilita la comparación entre varios errores de un mismo procedimiento.
+#' 
+#' @param y representa la serie de observaciones reales.
+#' @param vec representa la matriz de observaciones de contraste.
+#'
 errorF<-function(y,vec){
   SMem<-matrix(NA,nrow=ncol(vec),ncol=1)
   rownames(SMem)<-names(vec)
