@@ -1,5 +1,14 @@
-#' LWW, Función para el ca´lcul
-
+#' LWW
+#'
+#' Esta funcion calcula el modelo de volatilidad estocástica basada en el filtro de partículas de Liu & West
+#' el algoritmo incorpora los pasos de empuje bayesianos basados en la transformación waveltet.
+#' 
+#' @function plWav1j, metodología propuesta para la eliminación de ruido aditivo basado en la transformación wavelet.
+#' @function BAYES.THR, metodología de Abramovich (1998) para la eliminación de ruido aditivo basado en la transformación wavelet.
+#'
+#' @param adicionales iguales que en la función LW1 y plWav1j.
+#' 
+#'
 LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=75,Ne=20,method=1){
   n  = length(y)
   N  = length(xs)
