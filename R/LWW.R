@@ -2,13 +2,28 @@
 #'
 #' Esta funcion calcula el modelo de volatilidad estocástica basada en el filtro de partículas de Liu & West
 #' el algoritmo incorpora los pasos de empuje bayesianos basados en la transformación waveltet.
-#' 
-#' @function plWav1j, metodología propuesta para la eliminación de ruido aditivo basado en la transformación wavelet.
-#' @function BAYES.THR, metodología de Abramovich (1998) para la eliminación de ruido aditivo basado en la transformación wavelet.
+#' plWav1j, metodología propuesta para la eliminación de ruido aditivo basado en la transformación wavelet.
+#' BAYES.THR, metodología de Abramovich (1998) para la eliminación de ruido aditivo basado en la transformación wavelet.
 #'
-#' @param adicionales iguales que en la función LW1 y plWav1j.
-#' 
+#' @param y representa la serie de observaciones reales.
+#' @param alphas representa la matriz de observaciones de contraste.
+#' @param betas bla bla bla, Omar debe completar esto.
+#' @param tau2s bla bla bla, Omar debe completar esto.
+#' @param xs bla bla bla, Omar debe completar esto.
+#' @param delta bla bla bla, Omar debe completar esto.
+#' @param lev  bla bla bla, Omar debe completar esto.
+#' @param M  bla bla bla, Omar debe completar esto.
+#' @param Ne  bla bla bla, Omar debe completar esto.
+#' @param method  bla bla bla, Omar debe completar esto.
 #'
+#' @return Esta funcion retorna bla bla bla, Omar debe completar esto..
+#'
+#' @example examples/examples_LWW.R
+#'
+#' @author Omar Rios Saavedra, \email{orioss@unal.edu.co}
+#'
+#' @export
+#' @importFrom wavethresh BAYES.THR
 LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=75,Ne=20,method=1){
   n  = length(y)
   N  = length(xs)
@@ -57,7 +72,7 @@ LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=75,Ne=20,method=1){
     quants[t,1,] = quantile(pars[,1],c(0.5,0.025,0.975))
     quants[t,2,] = quantile(pars[,2],c(0.5,0.025,0.975))
     quants[t,3,] = quantile(exp(pars[,3]),c(0.5,0.025,0.975))
-    quants[t,4,] = quantile(exp(xs/2),c(0.5,0.025,0.975))  
+    quants[t,4,] = quantile(exp(xs/2),c(0.5,0.025,0.975))
   }
   return(list(quants=quants,parss=parss,xss=xss))
 }

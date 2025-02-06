@@ -1,4 +1,4 @@
-#' plWav1j
+#' plWav1j_copia
 #'
 #' Esta funcion calcula bla bla bla.
 #'
@@ -17,15 +17,14 @@
 #'
 #' @return Esta funcion retorna bla bla bla, Omar debe completar esto..
 #'
-#' @example examples/examples_plWav1j.R
+#' @example examples/examples_plWav1j_copia.R
 #'
 #' @author Omar Rios Saavedra, \email{orioss@unal.edu.co}
 #'
 #' @export
 #' @importFrom stats mad rgamma
 #' @importFrom graphics par
-#' @importFrom wavethresh putD accessD wr accessC nlevelsWT
-plWav1j<-function(dat, filter.number = 4, family = "DaubLeAsymm", a = 10, b = 10, bet = 1,
+plWav1j_copia <- function(dat, filter.number = 4, family = "DaubLeAsymm", a = 10, b = 10, bet = 1,
                   nu0 = 5,lamb0 = 10, M = 10, Ne, j0 = nlevelsWT(vw), plot.EMPL = FALSE){
   #require(wavethresh) Omar, no use esta notacion
   set.seed(1321)
@@ -115,4 +114,6 @@ plWav1j<-function(dat, filter.number = 4, family = "DaubLeAsymm", a = 10, b = 10
     plot(x, bayesrec5, type = "l", ylab = "Bayes_Shrink", ylim = c(min(dat), max(dat)))
   }
   return(bayesrec5=bayesrec5)
+  lisc<-list(bayesrec5=bayesrec5,pr1a=pr1a,Ex5F1=Ex5F1,Psi1p=Psi1p,prF=prF,stF=stF,D=D)
+  return(lisc)
 }
