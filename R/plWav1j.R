@@ -26,7 +26,7 @@
 #' @importFrom graphics par
 #' @importFrom wavethresh putD accessD wr accessC nlevelsWT
 plWav1j<-function(dat, filter.number = 4, family = "DaubLeAsymm", M = 10, Ne = 200, j0 = nlevelsWT(vw), plot.EMPL = FALSE){
-  a = 10; b = 10; bet = 1; nu0 = 5; lamb0 = 10
+  #a = 10; b = 10; bet = 1; nu0 = 5; lamb0 = 10
   set.seed(1321)
   vw <- wavethresh::wd(dat,filter.number=filter.number,family=family)
   sigma<-mad(accessD(vw,level=(nlevelsWT(vw)-1)))/0.6745
@@ -35,8 +35,8 @@ plWav1j<-function(dat, filter.number = 4, family = "DaubLeAsymm", M = 10, Ne = 2
     coefthr<-accessD(vw,level=j)
     pr1a[(2^j:(2^(j+1)-1))]<-rev(coefthr)
   }
-  a<-a
-  b<-b*sigma^2
+  a<-10
+  b<-10*sigma^2
   Oj<-NULL
   tau12<-1/rgamma(1,a+3,b+10)
   Psi<-NULL
@@ -45,7 +45,7 @@ plWav1j<-function(dat, filter.number = 4, family = "DaubLeAsymm", M = 10, Ne = 2
     if(j==0){
       pr[1]<-0.999999
     }else{
-      pr[j+1]<-2^(-j*bet)
+      pr[j+1]<-2^(-j*1)
     }
     coefthr<-accessD(vw,level=j)
     Oj[(2^j:(2^(j+1)-1))]<-(sqrt(sigma^2+tau12)/sigma)*((1-pr[j+1])/pr[j+1])*exp(-0.5*(rev(coefthr)^2/sigma^2)*(tau12/(tau12+sigma^2)))
@@ -57,8 +57,8 @@ plWav1j<-function(dat, filter.number = 4, family = "DaubLeAsymm", M = 10, Ne = 2
     c0[j+1]<-max(0,sum(Psi[(2^j:(2^(j+1)-1))]*pr1a[(2^j:(2^(j+1)-1))]^2)/(sigma^2*sum(Psi[(2^j:(2^(j+1)-1))]))-1)
   }
   d<-dx<-matrix(0,ncol=length(vw$D),nrow=Ne)
-  nu0<-nu0
-  lamb0<-lamb0
+  nu0<-5
+  lamb0<-10
   S<-cbind(rep(nu0/2,Ne),rep(lamb0*nu0/2,Ne))
   sig1<-1/rgamma(Ne,nu0/2,lamb0*nu0/2)
   Psi1F<-matrix(0,ncol=length(vw$D),nrow = Ne)
