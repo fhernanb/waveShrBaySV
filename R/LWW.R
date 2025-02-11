@@ -1,9 +1,9 @@
 #' LWW
 #'
 #' Esta funcion calcula el modelo de volatilidad estocástica basada en el filtro de partículas de Liu & West
-#' el algoritmo incorpora los pasos de empuje bayesianos basados en la transformación waveltet.
+#' el algoritmo incorpora los pasos de empuje bayesianos basados en la transformación wavelet.
 #' plWav1j, metodología propuesta para la eliminación de ruido aditivo basado en la transformación wavelet.
-#' BAYES.THR, metodología de Abramovich (1998) para la eliminación de ruido aditivo basado en la transformación wavelet.
+#' BAYES.THR, metodología de  Abramovich et al. (1998) para la eliminación de ruido aditivo basado en la transformación wavelet.
 #'
 #' @param y representa la serie de observaciones reales.
 #' @param alphas representa la matriz de observaciones de contraste.
@@ -35,10 +35,11 @@ LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=75,Ne=20,method=1){
   xss<-NULL
   ws<-NULL
   ESS<-NULL
-  #like = rep(0,n)
+  like = rep(0,n)
+  like2 = rep(0,n)
   #par(mfrow=c(1,1))
   for (t in 1:n){
-    #like[t] = sum(dnorm(y[t],0.0,exp(xs/2)))
+    like[t] = sum(dnorm(y[t],0.0,exp(xs/2)))
     # Resampling
     mus     = pars[,1]+pars[,2]*xs
     mpar    = apply(pars,2,mean)
@@ -56,7 +57,12 @@ LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=75,Ne=20,method=1){
     else{
       xst  <- BAYES.THR(xt,alpha=1,beta=1,filter.number = 4, family = 'DaubLeAsymm',plotfn=FALSE,j0=lev,dev=var)
     }
-    xt <- xst
+    like2[t] = sum(dnorm(y[t],0.0,exp(xst/2)))
+    if(like2[t]>like[t]){
+      xt <- xst}else{
+      xt <- xt
+      }
+    #xt <- xst
     w    = dnorm(y[t],0.0,exp(xt/2),log=TRUE)-weight[k]
     w    = exp(w-max(w))
     ind  = sample(1:N,size=N,replace=T,prob=w)
