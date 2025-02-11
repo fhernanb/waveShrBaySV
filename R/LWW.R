@@ -1,22 +1,22 @@
 #' LWW
 #'
-#' Esta funcion calcula el modelo de volatilidad estocástica basada en el filtro de partículas de Liu & West
+#' Esta funcion calcula el modelo de volatilidad estocástica basada en el filtro de partículas de Liu & West (2001)
 #' el algoritmo incorpora los pasos de empuje bayesianos basados en la transformación wavelet.
-#' plWav1j, metodología propuesta para la eliminación de ruido aditivo basado en la transformación wavelet.
+#' plWav1j, metodología propuesta para la eliminación de ruido aditivo basado en particle learning en la transformación wavelet.
 #' BAYES.THR, metodología de  Abramovich et al. (1998) para la eliminación de ruido aditivo basado en la transformación wavelet.
 #'
 #' @param y representa la serie de observaciones reales.
-#' @param alphas representa la matriz de observaciones de contraste.
-#' @param betas bla bla bla, Omar debe completar esto.
-#' @param tau2s bla bla bla, Omar debe completar esto.
-#' @param xs bla bla bla, Omar debe completar esto.
-#' @param delta bla bla bla, Omar debe completar esto.
-#' @param lev  bla bla bla, Omar debe completar esto.
-#' @param M  bla bla bla, Omar debe completar esto.
-#' @param Ne  bla bla bla, Omar debe completar esto.
-#' @param method  bla bla bla, Omar debe completar esto.
+#' @param alphas representa los valores iniciales para el parámetro de reversión de la media en el proceso de volatilidad estocástica.
+#' @param betas representa los valores iniciales para el parámetros de persistencia de volatilidad.
+#' @param tau2s representa los valorese iniciales para la varianza de la variable latente (volatilidad estocástica).
+#' @param xs partículas iniciales de la variable latente a partir de la distribución a priori.
+#' @param delta constante de ponderación para el aprendizaje de parámetros en el algoritmo Liu & West (2001).
+#' @param lev  nivel de resolución en la transformación wavelet.
+#' @param M  parámetro de la función plWav1j.
+#' @param Ne  parámetro de la función plWav1j.
+#' @param method  1 o 2, método de eliminación de ruido a partir de la transformación wavelet method = 1 (plWav1j), method = 2 (BAYES.THR).
 #'
-#' @return Esta funcion retorna bla bla bla, Omar debe completar esto..
+#' @return Esta funcion retorna los cuantiles(2.5%, 50% y 97.5%) de las estimaciones de la volatilidad estocástica, y sus parámetros (alpha, beta y tau^2) a partir de las partículas libre de ruido. 
 #'
 #' @example examples/examples_LWW.R
 #'
