@@ -1,7 +1,7 @@
 #' LW1
 #'
 #' Función de filtro de partículas con aprendizaje de parámetros enfoque Liu & West
-#' Basada en el algoritmo de Lopes (2014)
+#' Basada en el algoritmo de Lopes & Tsay (2011)
 #'
 #' @param y representa la serie de observaciones reales.
 #' @param alphas representa la matriz de observaciones de contraste.
