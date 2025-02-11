@@ -4,11 +4,11 @@
 #' Basada en el algoritmo de Lopes & Tsay (2011)
 #'
 #' @param y representa la serie de observaciones reales.
-#' @param alphas representa la matriz de observaciones de contraste.
-#' @param betas bla bla bla, Omar debe completar esto.
-#' @param tau2s bla bla bla, Omar debe completar esto.
-#' @param xs bla bla bla, Omar debe completar esto.
-#' @param delta bla bla bla, Omar debe completar esto.
+#' @param alphas representa los valores iniciales para el parámetro de reversión de la media en el proceso de volatilidad estocástica.
+#' @param betas representa los valores iniciales para el parámetros de persistencia de volatilidad.
+#' @param tau2s representa los valorese iniciales para la varianza de la variable latente (volatilidad estocástica).
+#' @param xs partículas iniciales de la variable latente a partir de la distribución a priori.
+#' @param delta constante de ponderación para el aprendizaje de parámetros en el algoritmo Liu & West (2001).
 #'
 #' @return Esta funcion retorna bla bla bla, Omar debe completar esto..
 #'
