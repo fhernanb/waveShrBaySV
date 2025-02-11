@@ -1,21 +1,17 @@
 #' plWav1j
 #'
-#' Esta funcion calcula bla bla bla.
+#' Esta funcion elimina el ruido aditivo de una serie de observaciones por medio de un algoritmo bayesiano basado en el aprendizaje de partículas.
+#' La función utiliza un método shrinkage bayesiano basado en particle learning los coeficientes de la transformación wavelet de las observaciones. 
 #'
-#' @param dat bla bla bla, Omar debe completar esto.
-#' @param filter.number bla bla bla, Omar debe completar esto.
-#' @param family bla bla bla, Omar debe completar esto.
-#' @param a bla bla bla, Omar debe completar esto.
-#' @param b bla bla bla, Omar debe completar esto.
-#' @param bet bla bla bla, Omar debe completar esto.
-#' @param nu0  bla bla bla, Omar debe completar esto.
-#' @param lamb0  bla bla bla, Omar debe completar esto.
-#' @param M  bla bla bla, Omar debe completar esto.
-#' @param Ne  bla bla bla, Omar debe completar esto.
-#' @param j0  bla bla bla, Omar debe completar esto.
-#' @param plot.EMPL  bla bla bla, Omar debe completar esto.
+#' @param dat serie de observaciones a ingresar a las que se le debe eliminar el ruido aditivo.
+#' @param filter.number parámetro de la transformación wavelet que indica en número de momentos de desvanecimiento.
+#' @param family familia de la transformación wavelet c('DaubExPhase','DaubLeAsymm','Coiflets',...).
+#' @param M  número pasos programados en el proceso de maximización del algoritmo.
+#' @param Ne  número de partículas el proceso particle learning.
+#' @param j0  nivel de resolución de la transformación wavelet.
+#' @param plot.EMPL gráfica de comparación entre la serie de observaciones original y serie libre de ruido.
 #'
-#' @return Esta funcion retorna bla bla bla, Omar debe completar esto..
+#' @return Esta funcion retorna la serie de observciones libre de ruido al nivel de resolución especificado.
 #'
 #' @example examples/examples_plWav1j.R
 #'
