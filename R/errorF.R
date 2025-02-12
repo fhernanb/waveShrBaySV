@@ -6,7 +6,7 @@
 #' @param y representa la serie de observaciones reales.
 #' @param vec representa la matriz de observaciones de contraste.
 #'
-#' @return Esta funcion retorna bla bla bla, Omar debe completar esto..
+#' @return Esta funcion retorna una matriz de la raiz del error cuadrático medio para vectores de contraste ingresados en vec.
 #'
 #' @example examples/examples_errorF.R
 #'
