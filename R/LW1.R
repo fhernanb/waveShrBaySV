@@ -1,16 +1,16 @@
 #' LW1
 #'
 #' Función de filtro de partículas con aprendizaje de parámetros enfoque Liu & West
-#' Basada en el algoritmo de Lopes (2014)
+#' Basada en el algoritmo de Lopes & Tsay (2011)
 #'
 #' @param y representa la serie de observaciones reales.
-#' @param alphas representa la matriz de observaciones de contraste.
-#' @param betas bla bla bla, Omar debe completar esto.
-#' @param tau2s bla bla bla, Omar debe completar esto.
-#' @param xs bla bla bla, Omar debe completar esto.
-#' @param delta bla bla bla, Omar debe completar esto.
+#' @param alphas representa los valores iniciales para el parámetro de reversión de la media en el proceso de volatilidad estocástica.
+#' @param betas representa los valores iniciales para el parámetros de persistencia de volatilidad.
+#' @param tau2s representa los valorese iniciales para la varianza de la variable latente (volatilidad estocástica).
+#' @param xs partículas iniciales de la variable latente a partir de la distribución a priori.
+#' @param delta constante de ponderación para el aprendizaje de parámetros en el algoritmo Liu & West (2001).
 #'
-#' @return Esta funcion retorna bla bla bla, Omar debe completar esto..
+#' @return Esta funcion retorna los cuantiles(2.5%, 50% y 97.5%) de las estimaciones de la volatilidad estocástica, y sus parámetros (alpha, beta y tau^2). 
 #'
 #' @example examples/examples_LW1.R
 #'
