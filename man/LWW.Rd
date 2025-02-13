@@ -9,32 +9,35 @@ LWW(y, alphas, betas, tau2s, xs, delta, lev, M = 75, Ne = 20, method = 1)
 \arguments{
 \item{y}{representa la serie de observaciones reales.}
 
-\item{alphas}{representa la matriz de observaciones de contraste.}
+\item{alphas}{representa los valores iniciales para el parámetro de reversión de la media en el proceso de volatilidad estocástica.}
 
-\item{betas}{bla bla bla, Omar debe completar esto.}
+\item{betas}{representa los valores iniciales para el parámetros de persistencia de volatilidad.}
 
-\item{tau2s}{bla bla bla, Omar debe completar esto.}
+\item{tau2s}{representa los valorese iniciales para la varianza de la variable latente (volatilidad estocástica).}
 
-\item{xs}{bla bla bla, Omar debe completar esto.}
+\item{xs}{partículas iniciales de la variable latente a partir de la distribución a priori.}
 
-\item{delta}{bla bla bla, Omar debe completar esto.}
+\item{delta}{constante de ponderación para el aprendizaje de parámetros en el algoritmo Liu & West (2001).}
 
-\item{lev}{bla bla bla, Omar debe completar esto.}
+\item{lev}{nivel de resolución en la transformación wavelet.}
 
-\item{M}{bla bla bla, Omar debe completar esto.}
+\item{M}{parámetro de la función plWav1j.}
 
-\item{Ne}{bla bla bla, Omar debe completar esto.}
+\item{Ne}{parámetro de la función plWav1j.}
 
-\item{method}{bla bla bla, Omar debe completar esto.}
+\item{method}{1 o 2, método de eliminación de ruido a partir de la transformación wavelet method = 1 (plWav1j), method = 2 (BAYES.THR).}
 }
 \value{
-Esta funcion retorna bla bla bla, Omar debe completar esto..
+Esta funcion retorna los cuantiles(2.5\%, 50\% y 97.5\%) de
+las estimaciones de la volatilidad estocástica, y sus
+parámetros (\eqn{\alpha}, beta y \eqn{\tau^2}) a partir de las
+partículas libre de ruido.
 }
 \description{
-Esta funcion calcula el modelo de volatilidad estocástica basada en el filtro de partículas de Liu & West
-el algoritmo incorpora los pasos de empuje bayesianos basados en la transformación waveltet.
-plWav1j, metodología propuesta para la eliminación de ruido aditivo basado en la transformación wavelet.
-BAYES.THR, metodología de Abramovich (1998) para la eliminación de ruido aditivo basado en la transformación wavelet.
+Esta funcion calcula el modelo de volatilidad estocástica basada en el filtro de partículas de Liu & West (2001)
+el algoritmo incorpora los pasos de empuje bayesianos basados en la transformación wavelet.
+plWav1j, metodología propuesta para la eliminación de ruido aditivo basado en particle learning en la transformación wavelet.
+BAYES.THR, metodología de  Abramovich et al. (1998) para la eliminación de ruido aditivo basado en la transformación wavelet.
 }
 \examples{
 # Example that Omar need to complete

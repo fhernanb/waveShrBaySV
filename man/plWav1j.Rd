@@ -8,47 +8,33 @@ plWav1j(
   dat,
   filter.number = 4,
   family = "DaubLeAsymm",
-  a = 10,
-  b = 10,
-  bet = 1,
-  nu0 = 5,
-  lamb0 = 10,
   M = 10,
-  Ne,
+  Ne = 200,
   j0 = nlevelsWT(vw),
   plot.EMPL = FALSE
 )
 }
 \arguments{
-\item{dat}{bla bla bla, Omar debe completar esto.}
+\item{dat}{Serie de observaciones a ingresar a las que se le debe eliminar el ruido aditivo.}
 
-\item{filter.number}{bla bla bla, Omar debe completar esto.}
+\item{filter.number}{Parámetro de la transformación wavelet que indica en número de momentos de desvanecimiento.}
 
-\item{family}{bla bla bla, Omar debe completar esto.}
+\item{family}{Familia de la transformación wavelet c('DaubExPhase','DaubLeAsymm','Coiflets',...).}
 
-\item{a}{bla bla bla, Omar debe completar esto.}
+\item{M}{Número pasos programados en el proceso de maximización del algoritmo.}
 
-\item{b}{bla bla bla, Omar debe completar esto.}
+\item{Ne}{Número de partículas el proceso particle learning.}
 
-\item{bet}{bla bla bla, Omar debe completar esto.}
+\item{j0}{Nivel de resolución de la transformación wavelet.}
 
-\item{nu0}{bla bla bla, Omar debe completar esto.}
-
-\item{lamb0}{bla bla bla, Omar debe completar esto.}
-
-\item{M}{bla bla bla, Omar debe completar esto.}
-
-\item{Ne}{bla bla bla, Omar debe completar esto.}
-
-\item{j0}{bla bla bla, Omar debe completar esto.}
-
-\item{plot.EMPL}{bla bla bla, Omar debe completar esto.}
+\item{plot.EMPL}{Gráfica de comparación entre la serie de observaciones original y serie libre de ruido.}
 }
 \value{
-Esta funcion retorna bla bla bla, Omar debe completar esto..
+Esta funcion retorna la serie de observaciones libre de ruido al nivel de resolución especificado.
 }
 \description{
-Esta funcion calcula bla bla bla.
+Esta funcion elimina el ruido aditivo de una serie de observaciones por medio de un algoritmo bayesiano basado en el aprendizaje de partículas.
+La función utiliza un método shrinkage bayesiano basado en particle learning los coeficientes de la transformación wavelet de las observaciones.
 }
 \examples{
 # Example that Omar need to complete

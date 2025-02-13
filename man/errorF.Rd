@@ -12,7 +12,7 @@ errorF(y, vec)
 \item{vec}{representa la matriz de observaciones de contraste.}
 }
 \value{
-Esta funcion retorna bla bla bla, Omar debe completar esto..
+Esta funcion retorna una matriz de la raiz del error cuadrático medio para vectores de contraste ingresados en vec.
 }
 \description{
 Esta funcion se encarga del cálculo de la raíz cuadrada del error cuadrático medio.

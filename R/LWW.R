@@ -16,7 +16,10 @@
 #' @param Ne  parámetro de la función plWav1j.
 #' @param method  1 o 2, método de eliminación de ruido a partir de la transformación wavelet method = 1 (plWav1j), method = 2 (BAYES.THR).
 #'
-#' @return Esta funcion retorna los cuantiles(2.5%, 50% y 97.5%) de las estimaciones de la volatilidad estocástica, y sus parámetros (alpha, beta y tau^2) a partir de las partículas libre de ruido. 
+#' @return Esta funcion retorna los cuantiles(2.5%, 50% y 97.5%) de
+#' las estimaciones de la volatilidad estocástica, y sus
+#' parámetros (\eqn{\alpha}, beta y \eqn{\tau^2}) a partir de las
+#' partículas libre de ruido.
 #'
 #' @example examples/examples_LWW.R
 #'

@@ -5,9 +5,12 @@ Authors@R: c(
     person("Freddy", "Hernandez-Barajas", , "fhernanb@unal.edu.co", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7459-3329")),
     person("Omar Alexander", "Rios Saavedra", , "orioss@unal.edu.co", role = c("aut"),
-           comment = c(ORCID = "0000-0003-3062-1820"))       
+           comment = c(ORCID = ""))       
            )
-Description: What the package does (one paragraph).
+Description: A system for 'declaratively' creating graphics, based on "The
+    Grammar of Graphics". You provide the data, tell 'ggplot2' how to map
+    variables to aesthetics, what graphical primitives to use, and it
+    takes care of the details.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
