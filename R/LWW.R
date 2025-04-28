@@ -8,7 +8,7 @@
 #' @param y representa la serie de observaciones reales.
 #' @param alphas representa los valores iniciales para el parámetro de reversión de la media en el proceso de volatilidad estocástica.
 #' @param betas representa los valores iniciales para el parámetros de persistencia de volatilidad.
-#' @param tau2s representa los valorese iniciales para la varianza de la variable latente (volatilidad estocástica).
+#' @param tau2s representa los valores iniciales para la varianza de la variable latente (volatilidad estocástica).
 #' @param xs partículas iniciales de la variable latente a partir de la distribución a priori.
 #' @param delta constante de ponderación para el aprendizaje de parámetros en el algoritmo Liu & West (2001).
 #' @param lev  nivel de resolución en la transformación wavelet.
@@ -16,9 +16,9 @@
 #' @param Ne  parámetro de la función plWav1j.
 #' @param method  1 o 2, método de eliminación de ruido a partir de la transformación wavelet method = 1 (plWav1j), method = 2 (BAYES.THR).
 #'
-#' @return Esta funcion retorna los cuantiles(2.5%, 50% y 97.5%) de
+#' @return Esta funcion retorna los cuantiles (2.5%, 50% y 97.5%) de
 #' las estimaciones de la volatilidad estocástica, y sus
-#' parámetros (\eqn{\alpha}, beta y \eqn{\tau^2}) a partir de las
+#' parámetros (\eqn{\alpha}, \eqn{\beta} y \eqn{\tau^2}) a partir de las
 #' partículas libre de ruido.
 #'
 #' @example examples/examples_LWW.R

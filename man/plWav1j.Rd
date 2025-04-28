@@ -21,9 +21,9 @@ plWav1j(
 
 \item{family}{Familia de la transformación wavelet c('DaubExPhase','DaubLeAsymm','Coiflets',...).}
 
-\item{M}{Número pasos programados en el proceso de maximización del algoritmo.}
+\item{M}{Número de repeticiones en el proceso de maximización del algoritmo.}
 
-\item{Ne}{Número de partículas el proceso particle learning.}
+\item{Ne}{Número de partículas el proceso secuencial Monte Carlo.}
 
 \item{j0}{Nivel de resolución de la transformación wavelet.}
 

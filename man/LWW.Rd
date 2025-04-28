@@ -13,7 +13,7 @@ LWW(y, alphas, betas, tau2s, xs, delta, lev, M = 75, Ne = 20, method = 1)
 
 \item{betas}{representa los valores iniciales para el parámetros de persistencia de volatilidad.}
 
-\item{tau2s}{representa los valorese iniciales para la varianza de la variable latente (volatilidad estocástica).}
+\item{tau2s}{representa los valores iniciales para la varianza de la variable latente (volatilidad estocástica).}
 
 \item{xs}{partículas iniciales de la variable latente a partir de la distribución a priori.}
 
@@ -28,9 +28,9 @@ LWW(y, alphas, betas, tau2s, xs, delta, lev, M = 75, Ne = 20, method = 1)
 \item{method}{1 o 2, método de eliminación de ruido a partir de la transformación wavelet method = 1 (plWav1j), method = 2 (BAYES.THR).}
 }
 \value{
-Esta funcion retorna los cuantiles(2.5\%, 50\% y 97.5\%) de
+Esta funcion retorna los cuantiles (2.5\%, 50\% y 97.5\%) de
 las estimaciones de la volatilidad estocástica, y sus
-parámetros (\eqn{\alpha}, beta y \eqn{\tau^2}) a partir de las
+parámetros (\eqn{\alpha}, \eqn{\beta} y \eqn{\tau^2}) a partir de las
 partículas libre de ruido.
 }
 \description{
