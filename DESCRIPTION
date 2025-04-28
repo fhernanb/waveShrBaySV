@@ -7,11 +7,11 @@ Authors@R: c(
     person("Omar Alexander", "Rios Saavedra", , "orioss@unal.edu.co", role = c("aut"),
            comment = c(ORCID = ""))       
            )
-Description: Se implementa una función de eliminación de ruido conn un enfoque bayesiano
-    basado en métodos secuenciales Monte Carlo. Además actualiza las funciones para
-    la estimación de la Volatilidad Estocástica por medio de un fitro de partículas
-    convencional implementando un paso de empuje de partículas basado en la transformación
-    wavelet.
+Description: Se implementa una función de eliminación de ruido basado en waveletes
+    con un enfoque bayesiano basado en métodos secuenciales Monte Carlo. Además, actualiza 
+    las funciones para la estimación de la Volatilidad Estocástica por medio de un 
+    filtro de partículas convencional implementando un paso de empuje de partículas 
+    basado en la transformación wavelet.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
