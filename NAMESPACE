@@ -2,6 +2,7 @@
 
 export(LW1)
 export(LWW)
+export(bayeShrinkPL)
 export(errorF)
 export(multi)
 export(plWav1j)
