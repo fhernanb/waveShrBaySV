@@ -2,7 +2,7 @@
 #'
 #' Esta funcion calcula el modelo de volatilidad estocástica basada en el filtro de partículas de Liu & West (2001)
 #' el algoritmo incorpora los pasos de empuje bayesianos basados en la transformación wavelet.
-#' plWav1j, metodología propuesta para la eliminación de ruido aditivo basado en particle learning en la transformación wavelet.
+#' bayeShrinkPL, metodología propuesta para la eliminación de ruido aditivo basado en particle learning en la transformación wavelet.
 #' BAYES.THR, metodología de  Abramovich et al. (1998) para la eliminación de ruido aditivo basado en la transformación wavelet.
 #'
 #' @param y representa la serie de observaciones reales.
@@ -27,7 +27,7 @@
 #'
 #' @export
 #' @importFrom wavethresh BAYES.THR
-LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=75,Ne=20,method=1){
+LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=5,Ne=5,method=1){
   n  = length(y)
   N  = length(xs)
   quants = array(0,c(n,4,3))
@@ -55,7 +55,7 @@ LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=75,Ne=20,method=1){
     ms1 = ms[k,]+matrix(rnorm(3*N),N,3)%*%chol(h2*vpar)
     xt   = rnorm(N,ms1[,1]+ms1[,2]*xs[k],exp(ms1[,3]/2))
     if(method==1){
-      xst  <- plWav1j(xt,filter.number = 4, family = 'DaubLeAsymm', M = M, Ne = Ne, j0=lev, plot.EMPL = FALSE)}
+      xst  <- bayeShrinkPL(xt,filter.number = 4, family = 'DaubLeAsymm', M = M, Ne = Ne, j0=lev, plot.EMPL = FALSE)}
     else{
       xst  <- BAYES.THR(xt,alpha=1,beta=1,filter.number = 4, family = 'DaubLeAsymm',plotfn=FALSE,j0=lev,dev=var)
     }

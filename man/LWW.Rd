@@ -4,7 +4,7 @@
 \alias{LWW}
 \title{LWW}
 \usage{
-LWW(y, alphas, betas, tau2s, xs, delta, lev, M = 75, Ne = 20, method = 1)
+LWW(y, alphas, betas, tau2s, xs, delta, lev, M = 5, Ne = 5, method = 1)
 }
 \arguments{
 \item{y}{representa la serie de observaciones reales.}
@@ -36,7 +36,7 @@ partículas libre de ruido.
 \description{
 Esta funcion calcula el modelo de volatilidad estocástica basada en el filtro de partículas de Liu & West (2001)
 el algoritmo incorpora los pasos de empuje bayesianos basados en la transformación wavelet.
-plWav1j, metodología propuesta para la eliminación de ruido aditivo basado en particle learning en la transformación wavelet.
+bayeShrinkPL, metodología propuesta para la eliminación de ruido aditivo basado en particle learning en la transformación wavelet.
 BAYES.THR, metodología de  Abramovich et al. (1998) para la eliminación de ruido aditivo basado en la transformación wavelet.
 }
 \examples{
