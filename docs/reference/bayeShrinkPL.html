@@ -50,10 +50,10 @@ La función utiliza un método shrinkage bayesiano basado en particle learning l
 <span>  <span class="va">dat</span>,</span>
 <span>  filter.number <span class="op">=</span> <span class="fl">4</span>,</span>
 <span>  family <span class="op">=</span> <span class="st">"DaubLeAsymm"</span>,</span>
-<span>  M <span class="op">=</span> <span class="fl">5</span>,</span>
-<span>  Ne <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>  M <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>  Ne <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  j0 <span class="op">=</span> <span class="fu">nlevelsWT</span><span class="op">(</span><span class="va">vw</span><span class="op">)</span>,</span>
-<span>  plot.EMPL <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  plot.bayeShrinkPL <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -85,7 +85,7 @@ La función utiliza un método shrinkage bayesiano basado en particle learning l
 <dd><p>Nivel de resolución de la transformación wavelet.</p></dd>
 
 
-<dt id="arg-plot-empl">plot.EMPL<a class="anchor" aria-label="anchor" href="#arg-plot-empl"></a></dt>
+<dt id="arg-plot-bayeshrinkpl">plot.bayeShrinkPL<a class="anchor" aria-label="anchor" href="#arg-plot-bayeshrinkpl"></a></dt>
 <dd><p>Gráfica de comparación entre la serie de observaciones original y serie libre de ruido.</p></dd>
 
 </dl></div>
@@ -100,11 +100,29 @@ La función utiliza un método shrinkage bayesiano basado en particle learning l
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Example that Omar need to complete</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Ejemplo de eliminación de ruido</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3</span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">wavethresh</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: MASS</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> WaveThresh: R wavelet software, release 4.7.2, installed</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Copyright Guy Nason and others 1993-2022</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Note: nlevels has been renamed to nlevelsWT</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/wavethresh/man/DJ.EX.html" class="external-link">DJ.EX</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">doppler</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">SNR</span> <span class="op">&lt;-</span> <span class="fl">7</span></span></span>
+<span class="r-in"><span><span class="va">e</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>,mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="va">s</span><span class="op">/</span><span class="va">SNR</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">YNoi</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">+</span> <span class="va">e</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">YDNoi</span><span class="op">&lt;-</span><span class="fu">bayeShrinkPL</span><span class="op">(</span><span class="va">YNoi</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/plot.ts.html" class="external-link">plot.ts</a></span><span class="op">(</span><span class="va">y</span>,ylab<span class="op">=</span><span class="st">'Datos originales'</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="bayeShrinkPL-1.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/plot.ts.html" class="external-link">plot.ts</a></span><span class="op">(</span><span class="va">YNoi</span>,ylab<span class="op">=</span><span class="st">'Datos con ruido aditivo'</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="bayeShrinkPL-2.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/plot.ts.html" class="external-link">plot.ts</a></span><span class="op">(</span><span class="va">YDNoi</span>,ylab<span class="op">=</span><span class="st">'BayeShrink'</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="bayeShrinkPL-3.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
   </div>

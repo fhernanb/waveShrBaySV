@@ -37,10 +37,22 @@ Esta funcion elimina el ruido aditivo de una serie de observaciones por medio de
 La función utiliza un método shrinkage bayesiano basado en particle learning los coeficientes de la transformación wavelet de las observaciones.
 }
 \examples{
-# Example that Omar need to complete
+# Ejemplo de eliminación de ruido
 
-x <- 1:5
-mean(x)
+library(wavethresh)
+
+y <- DJ.EX()$doppler
+
+s <- sd(y)
+SNR <- 7
+e <- rnorm(length(y),mean = 0, sd = s/SNR)
+YNoi <- y + e
+
+YDNoi<-bayeShrinkPL(YNoi)
+
+plot.ts(y,ylab='Datos originales')
+plot.ts(YNoi,ylab='Datos con ruido aditivo')
+plot.ts(YDNoi,ylab='BayeShrink')
 }
 \author{
 Omar Rios Saavedra, \email{orioss@unal.edu.co}

@@ -40,7 +40,7 @@ bayeShrinkPL, metodología propuesta para la eliminación de ruido aditivo basad
 BAYES.THR, metodología de  Abramovich et al. (1998) para la eliminación de ruido aditivo basado en la transformación wavelet.
 }
 \examples{
-# Example that Omar need to complete
+# Ejemplo de aplicación del filtro de Liu West con empuje basado en wavelet
 \dontrun{
 library(wavethresh)
 

@@ -21,11 +21,11 @@
 #' @importFrom stats mad rgamma
 #' @importFrom graphics par
 #' @importFrom wavethresh putD accessD wr accessC nlevelsWT
-bayeShrinkPL <- function(dat, filter.number = 4, family = "DaubLeAsymm", M = 5, Ne = 5, j0 = nlevelsWT(vw), plot.bayeShrinkPL = FALSE){
+bayeShrinkPL <- function(dat, filter.number = 4, family = "DaubLeAsymm", M = 10, Ne = 10, j0 = nlevelsWT(vw), plot.bayeShrinkPL = FALSE){
   #a = 10; b = 10; bet = 1; nu0 = 5; lamb0 = 10
-  set.seed(1321)
+  #set.seed(1321)
   vw <- wavethresh::wd(dat,filter.number=filter.number,family=family)
-  sigma<-mad(accessD(vw,level=(nlevelsWT(vw)-1)))/0.6745
+  sigma<-mad(wavethresh::accessD(vw,level=(nlevelsWT(vw)-1)))/0.6745
   pr1a<-NULL
   for (j in 0:(j0-1)){
     coefthr<-accessD(vw,level=j)
@@ -101,8 +101,8 @@ bayeShrinkPL <- function(dat, filter.number = 4, family = "DaubLeAsymm", M = 5, 
   D<-wavethresh::accessC(vw,level=0)
   if (plot.bayeShrinkPL == TRUE) {
     x <- seq(1, length(dat))/length(dat)
-    par(mfrow = c(1, 2))
-    plot(x, dat, type = "l", ylab = "(a) Datos")
+    par(mfrow = c(2, 1))
+    plot(x, dat, type = "l", ylab = "Datos con ruido")
     plot(x, bayesrec5, type = "l", ylab = "Bayes_Shrink", ylim = c(min(dat), max(dat)))
   }
   return(bayesrec5=bayesrec5)

@@ -100,11 +100,25 @@ La función utiliza un método shrinkage bayesiano basado en particle learning l
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Example that Omar need to complete</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Ejemplo de eliminación de ruido</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3</span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">wavethresh</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/wavethresh/man/DJ.EX.html" class="external-link">DJ.EX</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">doppler</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">SNR</span> <span class="op">&lt;-</span> <span class="fl">7</span></span></span>
+<span class="r-in"><span><span class="va">e</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>,mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="va">s</span><span class="op">/</span><span class="va">SNR</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">YNoi</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">+</span> <span class="va">e</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">YDNoi</span><span class="op">&lt;-</span><span class="fu"><a href="bayeShrinkPL.html">bayeShrinkPL</a></span><span class="op">(</span><span class="va">YNoi</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/plot.ts.html" class="external-link">plot.ts</a></span><span class="op">(</span><span class="va">y</span>,ylab<span class="op">=</span><span class="st">'Datos originales'</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="plWav1j-1.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/plot.ts.html" class="external-link">plot.ts</a></span><span class="op">(</span><span class="va">YNoi</span>,ylab<span class="op">=</span><span class="st">'Datos con ruido aditivo'</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="plWav1j-2.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/plot.ts.html" class="external-link">plot.ts</a></span><span class="op">(</span><span class="va">YDNoi</span>,ylab<span class="op">=</span><span class="st">'BayeShrink'</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="plWav1j-3.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
   </div>

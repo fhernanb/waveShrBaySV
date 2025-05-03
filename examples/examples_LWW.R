@@ -1,4 +1,4 @@
-# Example that Omar need to complete
+# Ejemplo de aplicación del filtro de Liu West con empuje basado en wavelet
 \dontrun{
 library(wavethresh)
 
