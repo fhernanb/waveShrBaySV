@@ -27,7 +27,7 @@ bayeShrinkPL(
 
 \item{j0}{Nivel de resolución de la transformación wavelet.}
 
-\item{plot.bayeShrinkPL}{Gráfica de comparación entre la serie de observaciones original y serie libre de ruido.}
+\item{plot.bayeShrinkPL}{Gráfica de comparación entre la serie de observaciones y serie libre de ruido.}
 }
 \value{
 Esta funcion retorna la serie de observaciones libre de ruido al nivel de resolución especificado.

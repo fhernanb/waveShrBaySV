@@ -9,11 +9,11 @@
 #' @param M  Número de repeticiones en el proceso de maximización del algoritmo.
 #' @param Ne  Número de partículas el proceso secuencial Monte Carlo.
 #' @param j0  Nivel de resolución de la transformación wavelet.
-#' @param plot.bayeShrinkPL Gráfica de comparación entre la serie de observaciones original y serie libre de ruido.
+#' @param plot.bayeShrinkPL Gráfica de comparación entre la serie de observaciones y serie libre de ruido.
 #'
 #' @return Esta funcion retorna la serie de observaciones libre de ruido al nivel de resolución especificado.
 #'
-#' @example examples/examples_plWav1j.R
+#' @example examples/examples_bayeShrinkPL.R
 #'
 #' @author Omar Rios Saavedra, \email{orioss@unal.edu.co}
 #'

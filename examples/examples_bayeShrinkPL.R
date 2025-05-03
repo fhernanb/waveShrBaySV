@@ -2,11 +2,15 @@
 
 library(wavethresh)
 
-y <- DJ.EX()$blocks
+y <- DJ.EX()$doppler
+
 s <- sd(y)
 SNR <- 7
-eN <- rnorm(length(y),mean = 0, sd = s/SNR)
+e <- rnorm(length(y),mean = 0, sd = s/SNR)
+YNoi <- y + e
 
-YNoi <- y + eN
+YDNoi<-bayeShrinkPL(YNoi)
 
-bayeShrinkPL(YNoi, plot.bayeShrinkPL = TRUE)
+plot.ts(y,ylab='Datos originales')
+plot.ts(YNoi,ylab='Datos con ruido aditivo')
+plot.ts(YDNoi,ylab='BayeShrink')
