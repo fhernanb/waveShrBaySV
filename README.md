@@ -5,8 +5,8 @@
 [![R-CMD-check](https://github.com/fhernanb/waveShrBaySV/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/fhernanb/waveShrBaySV/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-El objetivo de waveShrBaySV es eliminar el ruido aditivo de series de tiempo con error estocástico 
-endógeno a través de la técnica de la contracción (shrinkage) de los coeficientes de la transformación 
+El objetivo de waveShrBaySV es eliminar el ruido aditivo en series de tiempo con error estocástico 
+endógeno a través de la técnica de contracción (shrinkage) de los coeficientes de la transformación 
 wavelet. Así mismo, implementar en el modelo de volatilidad estocástica esta metodología de 
 eliminación de ruido a partir de un proceso de filtro de partículas con empuje basado en wavelets.
 
