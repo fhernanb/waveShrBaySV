@@ -9,7 +9,7 @@
 #' @param M  Número de repeticiones en el proceso de maximización del algoritmo.
 #' @param Ne  Número de partículas el proceso secuencial Monte Carlo.
 #' @param j0  Nivel de resolución de la transformación wavelet.
-#' @param plot.EMPL Gráfica de comparación entre la serie de observaciones original y serie libre de ruido.
+#' @param plot.bayeShrinkPL Gráfica de comparación entre la serie de observaciones original y serie libre de ruido.
 #'
 #' @return Esta funcion retorna la serie de observaciones libre de ruido al nivel de resolución especificado.
 #'
@@ -21,7 +21,7 @@
 #' @importFrom stats mad rgamma
 #' @importFrom graphics par
 #' @importFrom wavethresh putD accessD wr accessC nlevelsWT
-bayeShrinkPL <- function(dat, filter.number = 4, family = "DaubLeAsymm", M = 5, Ne = 5, j0 = nlevelsWT(vw), plot.EMPL = FALSE){
+bayeShrinkPL <- function(dat, filter.number = 4, family = "DaubLeAsymm", M = 5, Ne = 5, j0 = nlevelsWT(vw), plot.bayeShrinkPL = FALSE){
   #a = 10; b = 10; bet = 1; nu0 = 5; lamb0 = 10
   set.seed(1321)
   vw <- wavethresh::wd(dat,filter.number=filter.number,family=family)
@@ -99,7 +99,7 @@ bayeShrinkPL <- function(dat, filter.number = 4, family = "DaubLeAsymm", M = 5, 
   }
   bayesrec5<-wavethresh::wr(bayes3)
   D<-wavethresh::accessC(vw,level=0)
-  if (plot.EMPL == TRUE) {
+  if (plot.bayeShrinkPL == TRUE) {
     x <- seq(1, length(dat))/length(dat)
     par(mfrow = c(1, 2))
     plot(x, dat, type = "l", ylab = "(a) Datos")
