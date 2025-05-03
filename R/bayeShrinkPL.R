@@ -21,7 +21,7 @@
 #' @importFrom stats mad rgamma
 #' @importFrom graphics par
 #' @importFrom wavethresh putD accessD wr accessC nlevelsWT
-bayeShrinkPL <- function(dat, filter.number = 4, family = "DaubLeAsymm", M = 10, Ne = 10, j0 = nlevelsWT(vw), plot.bayeShrinkPL = FALSE){
+bayeShrinkPL <- function(dat, filter.number = 4, family = "DaubLeAsymm", M = 10, Ne = 100, j0 = nlevelsWT(vw), plot.bayeShrinkPL = FALSE){
   #a = 10; b = 10; bet = 1; nu0 = 5; lamb0 = 10
   #set.seed(1321)
   vw <- wavethresh::wd(dat,filter.number=filter.number,family=family)

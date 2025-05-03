@@ -9,7 +9,7 @@ bayeShrinkPL(
   filter.number = 4,
   family = "DaubLeAsymm",
   M = 10,
-  Ne = 10,
+  Ne = 100,
   j0 = nlevelsWT(vw),
   plot.bayeShrinkPL = FALSE
 )
@@ -44,7 +44,7 @@ library(wavethresh)
 y <- DJ.EX()$doppler
 
 s <- sd(y)
-SNR <- 7
+SNR <- 9
 e <- rnorm(length(y),mean = 0, sd = s/SNR)
 YNoi <- y + e
 
