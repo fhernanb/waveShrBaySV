@@ -1,7 +1,8 @@
 #' bayeShrinkPL
 #'
 #' Esta funcion elimina el ruido aditivo de una serie de observaciones por medio de un algoritmo bayesiano basado en el aprendizaje de partículas.
-#' La función utiliza un método shrinkage bayesiano basado en particle learning los coeficientes de la transformación wavelet de las observaciones.
+#' La función utiliza un método shrinkage bayesiano basado en particle learning para suavizar el valor de los
+#' coeficientes de la transformación wavelet de las observaciones.
 #'
 #' @param dat Serie de observaciones a ingresar a las que se le debe eliminar el ruido aditivo.
 #' @param filter.number Parámetro de la transformación wavelet que indica en número de momentos de desvanecimiento.

@@ -10,7 +10,8 @@
 #' @param xs partículas iniciales de la variable latente a partir de la distribución a priori.
 #' @param delta constante de ponderación para el aprendizaje de parámetros en el algoritmo Liu & West (2001).
 #'
-#' @return Esta funcion retorna los cuantiles (2.5%, 50% y 97.5%) de las estimaciones de la volatilidad estocástica,
+#' @return Esta funcion retorna los cuantiles (2.5%, 50% y 97.5%) de
+#' las estimaciones de la volatilidad estocástica,
 #' y sus parámetros (\eqn{\alpha}, \eqn{\beta} y \eqn{\tau^2}).
 #'
 #' @example examples/examples_LW1.R

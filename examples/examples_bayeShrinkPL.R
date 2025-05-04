@@ -13,4 +13,4 @@ YDNoi<-bayeShrinkPL(YNoi)
 
 plot.ts(y,ylab='Datos originales')
 plot.ts(YNoi,ylab='Datos con ruido aditivo')
-plot.ts(YDNoi,ylab='BayeShrink')
+plot.ts(YDNoi,ylab='BayeShrinkPL')

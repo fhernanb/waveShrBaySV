@@ -20,7 +20,8 @@ LW1(y, alphas, betas, tau2s, xs, delta)
 \item{delta}{constante de ponderación para el aprendizaje de parámetros en el algoritmo Liu & West (2001).}
 }
 \value{
-Esta funcion retorna los cuantiles (2.5\%, 50\% y 97.5\%) de las estimaciones de la volatilidad estocástica,
+Esta funcion retorna los cuantiles (2.5\%, 50\% y 97.5\%) de
+las estimaciones de la volatilidad estocástica,
 y sus parámetros (\eqn{\alpha}, \eqn{\beta} y \eqn{\tau^2}).
 }
 \description{

@@ -34,7 +34,8 @@ Esta funcion retorna la serie de observaciones libre de ruido al nivel de resolu
 }
 \description{
 Esta funcion elimina el ruido aditivo de una serie de observaciones por medio de un algoritmo bayesiano basado en el aprendizaje de partículas.
-La función utiliza un método shrinkage bayesiano basado en particle learning los coeficientes de la transformación wavelet de las observaciones.
+La función utiliza un método shrinkage bayesiano basado en particle learning para suavizar el valor de los
+coeficientes de la transformación wavelet de las observaciones.
 }
 \examples{
 # Ejemplo de eliminación de ruido
@@ -52,7 +53,7 @@ YDNoi<-bayeShrinkPL(YNoi)
 
 plot.ts(y,ylab='Datos originales')
 plot.ts(YNoi,ylab='Datos con ruido aditivo')
-plot.ts(YDNoi,ylab='BayeShrink')
+plot.ts(YDNoi,ylab='BayeShrinkPL')
 }
 \author{
 Omar Rios Saavedra, \email{orioss@unal.edu.co}
