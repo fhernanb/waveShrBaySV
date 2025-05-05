@@ -21,11 +21,11 @@ LWW(y, alphas, betas, tau2s, xs, delta, lev, M = 5, Ne = 5, method = 1)
 
 \item{lev}{nivel de resolución en la transformación wavelet.}
 
-\item{M}{parámetro de la función plWav1j.}
+\item{M}{parámetro de la función bayeShrinkPL.}
 
-\item{Ne}{parámetro de la función plWav1j.}
+\item{Ne}{parámetro de la función bayeShrinkPL.}
 
-\item{method}{1 o 2, método de eliminación de ruido a partir de la transformación wavelet method = 1 (plWav1j), method = 2 (BAYES.THR).}
+\item{method}{1 o 2, método de eliminación de ruido a partir de la transformación wavelet method = 1 (bayeShrinkPL), method = 2 (BAYES.THR).}
 }
 \value{
 Esta funcion retorna los cuantiles (2.5\%, 50\% y 97.5\%) de

@@ -4,7 +4,7 @@
 #' La función facilita la comparación entre varios errores de un mismo procedimiento.
 #'
 #' @param y representa la serie de observaciones reales.
-#' @param vec representa la matriz de observaciones de contraste.
+#' @param vec representa la matriz de observaciones de contraste. Cada columna representa una variable.
 #'
 #' @return Esta funcion retorna una matriz de la raiz del error cuadrático medio para vectores de contraste ingresados en vec.
 #'

@@ -9,7 +9,7 @@ errorF(y, vec)
 \arguments{
 \item{y}{representa la serie de observaciones reales.}
 
-\item{vec}{representa la matriz de observaciones de contraste.}
+\item{vec}{representa la matriz de observaciones de contraste. Cada columna representa una variable.}
 }
 \value{
 Esta funcion retorna una matriz de la raiz del error cuadrático medio para vectores de contraste ingresados en vec.

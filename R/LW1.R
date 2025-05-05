@@ -30,7 +30,7 @@ LW1 <- function(y, alphas, betas, tau2s, xs, delta) {
   pars <- cbind(alphas,betas,log(tau2s))
   xss<-NULL
   ws<-NULL
-  ESS<-NULL
+  #ESS<-NULL
   #like <- rep(0,n)
   #par(mfrow=c(1,1))
   for (t in 1:n){
@@ -53,10 +53,10 @@ LW1 <- function(y, alphas, betas, tau2s, xs, delta) {
     pars <- ms1[ind,]
     xss<-rbind(xss,xs)
     parss[,,t]<-pars
-    ws<-rbind(ws,w)
-    cv2<-var(w)/(mean(w)^2)
-    ESS<-c(ESS,N/(1+cv2))
-    ts.plot(ESS,xlim=c(1,n))
+    #ws<-rbind(ws,w)
+    #cv2<-var(w)/(mean(w)^2)
+    #ESS<-c(ESS,N/(1+cv2))
+    #ts.plot(ESS,xlim=c(1,n))
     # Storing quantiles
     quants[t,1,] <- quantile(pars[,1],c(0.5,0.025,0.975))
     quants[t,2,] <- quantile(pars[,2],c(0.5,0.025,0.975))

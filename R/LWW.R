@@ -12,9 +12,9 @@
 #' @param xs partículas iniciales de la variable latente a partir de la distribución a priori.
 #' @param delta constante de ponderación para el aprendizaje de parámetros en el algoritmo Liu & West (2001).
 #' @param lev  nivel de resolución en la transformación wavelet.
-#' @param M  parámetro de la función plWav1j.
-#' @param Ne  parámetro de la función plWav1j.
-#' @param method  1 o 2, método de eliminación de ruido a partir de la transformación wavelet method = 1 (plWav1j), method = 2 (BAYES.THR).
+#' @param M  parámetro de la función bayeShrinkPL.
+#' @param Ne  parámetro de la función bayeShrinkPL.
+#' @param method  1 o 2, método de eliminación de ruido a partir de la transformación wavelet method = 1 (bayeShrinkPL), method = 2 (BAYES.THR).
 #'
 #' @return Esta funcion retorna los cuantiles (2.5%, 50% y 97.5%) de
 #' las estimaciones de la volatilidad estocástica, y sus
