@@ -42,7 +42,7 @@ for (t in 2:n){
 }
 
 alpha.true <- alpha
-beta.true < -beta
+beta.true <- beta
 tau2.true <- tau2
 
 # valores iniciales y distribución a priori
