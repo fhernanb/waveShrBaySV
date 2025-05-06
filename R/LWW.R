@@ -57,7 +57,7 @@ LWW = function(y,alphas,betas,tau2s,xs,delta,lev,M=5,Ne=5,method=1){
     if(method==1){
       xst  <- bayeShrinkPL(xt,filter.number = 4, family = 'DaubLeAsymm', M = M, Ne = Ne, j0=lev, plot.bayeShrinkPL = FALSE)}
     else{
-      xst  <- BAYES.THR(xt,alpha=1,beta=1,filter.number = 4, family = 'DaubLeAsymm',plotfn=FALSE,j0=lev,dev=var)
+      xst  <- BAYES.THR(xt,alpha=1,beta=1,filter.number = 4, family = 'DaubLeAsymm', plotfn = FALSE, j0 = lev, dev = var)
     }
     like2[t] = sum(dnorm(y[t],0.0,exp(xst/2)))
     if(like2[t]>like[t]){
