@@ -52,7 +52,7 @@ beta.true <- beta
 tau2.true <- tau2
 
 # Número de partículas y ponderación de la mixtura
-N = 2^10
+N = 2^11
 delta <- 0.975
 
 # Valores iniciales y distribuciones a priori
@@ -104,6 +104,7 @@ ts.plot(mtau21, ylim = range(ltau21, utau21), main = 'LW', ylab = expression(tau
 lines(ltau21, lwd = 1.25, col = 'gray')
 lines(utau21, lwd = 1.25, col = 'gray')
 abline(h=tau2.true, col = 2, lwd = 1)
+
 }
 \author{
 Omar Rios Saavedra, \email{orioss@unal.edu.co}
