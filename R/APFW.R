@@ -1,10 +1,8 @@
 #' APFW
 #'
-#' Esta funcion calcula el modelo de volatilidad estocástica basada en el filtro auxiliar de partículas (APF)
-#' el algoritmo incorpora los pasos de empuje bayesianos basados en la transformación wavelet.
+#' Esta funcion calcula el modelo de volatilidad estocástica basada en el filtro auxiliar de partículas (APF).
+#' El algoritmo incorpora los pasos de empuje bayesianos basados en la transformación wavelet.
 #' El algoritmo asume que los parámetros del modelo son desconocidos.
-#' bayeShrinkPL, metodología propuesta para la eliminación de ruido aditivo basado en particle learning en la transformación wavelet.
-#' BAYES.THR, metodología de  Abramovich et al. (1998) para la eliminación de ruido aditivo basado en la transformación wavelet.
 #'
 #' @param y  representa la serie de observaciones reales.
 #' @param ms1  vector de parámetros (\eqn{\alpha}, \eqn{\beta} y \eqn{\tau^2}).
